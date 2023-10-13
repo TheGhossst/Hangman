@@ -33,7 +33,12 @@ class HangmanGame:
         self.guesses_text = tk.Text(root, height=10, width=15, font=("Arial", 18))
         self.guesses_text.pack()
         
-        self.draw_hangman()
+        #Initial Hangman Setting
+        self.canvas.create_line(20, 220, 180, 220, width=2) #Floor
+        self.canvas.create_line(90, 220, 90, 30, width=2)   #Pole
+        self.canvas.create_line(90, 30, 150, 30, width=2)   #Ceiling
+        self.canvas.create_line(150, 30, 150, 60, width=2)  #Rope
+        
     def check_guess(self):    
         guess = self.input_entry.get().strip().upper()
         self.input_entry.delete(0, tk.END)
@@ -43,11 +48,18 @@ class HangmanGame:
         elif guess in self.previous_guesses:
             messagebox.showinfo("Hangman", "You already guessed that letter!")
             return
+        
+        self.previous_guesses.append(guess)
+        self.guesses_text.insert(tk.END, guess + "\n")
+        if guess in self.word:
+            for i in range(len(self.word)):
+                if self.word[i] == guess:
+                    self.display_word[i] = guess
+            self.word_label.config(text=" ".join(self.display_word))
+        else:
+            self.guesses_left -= 1
+            self.draw_hangman()
     def draw_hangman(self):
-        self.canvas.create_line(20, 220, 180, 220, width=2) #Floor
-        self.canvas.create_line(90, 220, 90, 30, width=2)   #Pole
-        self.canvas.create_line(90, 30, 150, 30, width=2)   #Ceiling
-        self.canvas.create_line(150, 30, 150, 60, width=2)  #Rope
         self.canvas.create_oval(140, 60, 160, 80, width=2)  #Head
         self.canvas.create_line(150, 80, 150, 130, width=2) #body
         self.canvas.create_line(150, 90, 130, 110, width=2) #Larm
