@@ -34,7 +34,8 @@ class HangmanGame:
         
         self.draw_hangman()
     def check_guess(self):    
-        
+        guess = self.input_entry.get().strip().upper()
+        self.input_entry.delete(0, tk.END)
     def draw_hangman(self):
         self.canvas.create_line(20, 220, 180, 220, width=2) #Floor
         self.canvas.create_line(90, 220, 90, 30, width=2)   #Pole
