@@ -38,6 +38,9 @@ class HangmanGame:
         self.canvas.create_line(90, 220, 90, 30, width=2)   #Pole
         self.canvas.create_line(90, 30, 150, 30, width=2)   #Ceiling
         self.canvas.create_line(150, 30, 150, 60, width=2)  #Rope
+        
+        self.reveal_free_character() 
+        
     def reveal_free_character(self):
         hidden_indices = []
         for i, char in enumerate(self.display_word):        
