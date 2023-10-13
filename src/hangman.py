@@ -46,24 +46,29 @@ class HangmanGame:
         for i, char in enumerate(self.display_word):        
             if char == "_":
                 hidden_indices.append(i)
+                
         if hidden_indices:
             index_to_reveal = hidden_indices[0]
             self.display_word[index_to_reveal] = self.word[index_to_reveal]
             self.word_label.config(text=" ".join(self.display_word))
             self.previous_guesses.append(self.word[index_to_reveal])
             self.guesses_text.insert(tk.END, self.word[index_to_reveal] + "\n")
+            
     def check_guess(self):    
         guess = self.input_entry.get().strip().upper()
         self.input_entry.delete(0, tk.END)
+        
         if not guess or guess.isspace():
             messagebox.showinfo("Hangman", "Invalid choice! Please enter a valid letter.")
             return
+        
         elif guess in self.previous_guesses:
             messagebox.showinfo("Hangman", "You already guessed that letter!")
             return
         
         self.previous_guesses.append(guess)
         self.guesses_text.insert(tk.END, guess + "\n")
+        
         if guess in self.word:
             for i in range(len(self.word)):
                 if self.word[i] == guess:
@@ -83,6 +88,7 @@ class HangmanGame:
             self.submit_button.config(state=tk.DISABLED)
         else:
             self.guess_label.config(text="Guesses left: " + str(self.guesses_left))
+    
     def draw_hangman(self):
         self.canvas.create_oval(140, 60, 160, 80, width=2)  #Head
         self.canvas.create_line(150, 80, 150, 130, width=2) #body
