@@ -16,6 +16,9 @@ class HangmanGame:
         self.word_label = tk.Label(root, text=" ".join(self.display_word), font=("Arial", 24))
         self.word_label.pack()
         
+        self.guess_label = tk.Label(root, text="Guesses left: " + str(self.guesses_left), font=("Arial", 18))
+        self.guess_label.pack()
+        
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
