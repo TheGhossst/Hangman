@@ -6,6 +6,7 @@ class HangmanGame:
         self.root = root
         self.r = RandomWords()
         self.word = self.r.get_random_word().upper()
+        print(self.word)
         self.guesses_left = 6
         self.display_word = ["_"] * len(self.word)
         self.previous_guesses = []
