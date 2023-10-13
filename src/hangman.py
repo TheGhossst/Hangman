@@ -1,5 +1,6 @@
 import tkinter as tk
 from random_word import RandomWords
+from tkinter import messagebox
 
 class HangmanGame:
     def __init__(self, root):
@@ -36,6 +37,12 @@ class HangmanGame:
     def check_guess(self):    
         guess = self.input_entry.get().strip().upper()
         self.input_entry.delete(0, tk.END)
+        if not guess or guess.isspace():
+            messagebox.showinfo("Hangman", "Invalid choice! Please enter a valid letter.")
+            return
+        elif guess in self.previous_guesses:
+            messagebox.showinfo("Hangman", "You already guessed that letter!")
+            return
     def draw_hangman(self):
         self.canvas.create_line(20, 220, 180, 220, width=2) #Floor
         self.canvas.create_line(90, 220, 90, 30, width=2)   #Pole
