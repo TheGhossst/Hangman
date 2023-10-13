@@ -31,6 +31,8 @@ class HangmanGame:
         self.guesses_text = tk.Text(root, height=10, width=15, font=("Arial", 18))
         self.guesses_text.pack()
         
+    def draw_hangman(self):
+        
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
