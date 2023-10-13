@@ -22,6 +22,9 @@ class HangmanGame:
         self.input_entry = tk.Entry(root, font=("Arial", 18))
         self.input_entry.pack()
         
+        self.submit_button = tk.Button(root, text="Submit Guess",command=" ", font=("Arial", 18))
+        self.submit_button.pack()
+        
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
