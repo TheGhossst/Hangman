@@ -40,7 +40,8 @@ class HangmanGame:
         self.canvas.create_line(150, 30, 150, 60, width=2)  #Rope
         
         self.reveal_free_character() 
-        
+    
+    #Reveal a character    
     def reveal_free_character(self):
         hidden_indices = []
         for i, char in enumerate(self.display_word):        
@@ -53,7 +54,7 @@ class HangmanGame:
             self.word_label.config(text=" ".join(self.display_word))
             self.previous_guesses.append(self.word[index_to_reveal])
             self.guesses_text.insert(tk.END, self.word[index_to_reveal] + "\n")
-            
+    #Check user guess       
     def check_guess(self):    
         guess = self.input_entry.get().strip().upper()
         self.input_entry.delete(0, tk.END)
@@ -106,5 +107,7 @@ def main():
     root.title("Hangman Game")
     HangmanGame(root)
     root.mainloop()
+    
+#call main()    
 if __name__ == "__main__":
     main()
