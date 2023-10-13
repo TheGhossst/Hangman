@@ -33,6 +33,7 @@ class HangmanGame:
         self.guesses_text.pack()
         
         self.draw_hangman()
+    def check_guess(self):    
         
     def draw_hangman(self):
         self.canvas.create_line(20, 220, 180, 220, width=2) #Floor
