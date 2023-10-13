@@ -37,8 +37,9 @@ class HangmanGame:
         self.canvas.create_line(20, 220, 180, 220, width=2) #Floor
         self.canvas.create_line(90, 220, 90, 30, width=2)   #Pole
         self.canvas.create_line(90, 30, 150, 30, width=2)   #Ceiling
-        self.canvas.create_line(150, 30, 150, 60, width=2)  # Rope
-        self.canvas.create_oval(140, 60, 160, 80, width=2)  # Head
+        self.canvas.create_line(150, 30, 150, 60, width=2)  #Rope
+        self.canvas.create_oval(140, 60, 160, 80, width=2)  #Head
+        self.canvas.create_line(150, 80, 150, 130, width=2) #body
         
 def main():
     root = tk.Tk()
