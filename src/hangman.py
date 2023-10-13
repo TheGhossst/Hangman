@@ -1,7 +1,7 @@
 import tkinter as tk
 
 class HangmanGame:
-    
+    def __init__(self, root):
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
