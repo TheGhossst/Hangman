@@ -25,6 +25,9 @@ class HangmanGame:
         self.submit_button = tk.Button(root, text="Submit Guess",command=" ", font=("Arial", 18))
         self.submit_button.pack()
         
+        self.previous_guesses_label = tk.Label(root, text="Previous Guesses:", font=("Arial", 18))
+        self.previous_guesses_label.pack()
+        
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
