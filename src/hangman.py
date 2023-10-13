@@ -58,7 +58,7 @@ class HangmanGame:
         guess = self.input_entry.get().strip().upper()
         self.input_entry.delete(0, tk.END)
         
-        if not guess or guess.isspace():
+        if not guess or guess.isspace() or guess.isdigit():
             messagebox.showinfo("Hangman", "Invalid choice! Please enter a valid letter.")
             return
         
@@ -90,12 +90,16 @@ class HangmanGame:
             self.guess_label.config(text="Guesses left: " + str(self.guesses_left))
     
     def draw_hangman(self):
-        self.canvas.create_oval(140, 60, 160, 80, width=2)  #Head
-        self.canvas.create_line(150, 80, 150, 130, width=2) #body
-        self.canvas.create_line(150, 90, 130, 110, width=2) #Larm
-        self.canvas.create_line(150, 90, 170, 110, width=2) #Rarm
-        self.canvas.create_line(150, 130, 130, 150, width=2) #Lleg
-        self.canvas.create_line(150, 130, 170, 150, width=2) #Rleg
+        if self.guesses_left == 5:  self.canvas.create_oval(140, 60, 160, 80, width=2)  # Head
+        elif self.guesses_left == 4:  self.canvas.create_line(150, 80, 150, 130, width=2)  # Body
+        elif self.guesses_left == 3:  self.canvas.create_line(150, 90, 130, 110, width=2)  # Larm
+        elif self.guesses_left == 2:  self.canvas.create_line(150, 90, 170, 110, width=2)  # Rarm
+        elif self.guesses_left == 1:  self.canvas.create_line(150, 130, 130, 150, width=2)  # Lleg
+        elif self.guesses_left == 0:
+            self.canvas.create_line(150, 130, 170, 150, width=2)  # Rleg
+            self.word_label.config(text="Game over! The word was " + self.word)
+            self.input_entry.config(state=tk.DISABLED)
+            self.submit_button.config(state=tk.DISABLED)
         
 def main():
     root = tk.Tk()
