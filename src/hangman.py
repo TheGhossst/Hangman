@@ -1,4 +1,5 @@
 import tkinter as tk
+from random_word import RandomWords
 
 class HangmanGame:
     def __init__(self, root):
