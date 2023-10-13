@@ -24,7 +24,7 @@ class HangmanGame:
         self.input_entry = tk.Entry(root, font=("Arial", 18))
         self.input_entry.pack()
         
-        self.submit_button = tk.Button(root, text="Submit Guess",command=" ", font=("Arial", 18))
+        self.submit_button = tk.Button(root, text="Submit Guess",command=self.check_guess, font=("Arial", 18))
         self.submit_button.pack()
         
         self.previous_guesses_label = tk.Label(root, text="Previous Guesses:", font=("Arial", 18))
@@ -46,6 +46,12 @@ class HangmanGame:
         for i, char in enumerate(self.display_word):        
             if char == "_":
                 hidden_indices.append(i)
+        if hidden_indices:
+            index_to_reveal = hidden_indices[0]
+            self.display_word[index_to_reveal] = self.word[index_to_reveal]
+            self.word_label.config(text=" ".join(self.display_word))
+            self.previous_guesses.append(self.word[index_to_reveal])
+            self.guesses_text.insert(tk.END, self.word[index_to_reveal] + "\n")
     def check_guess(self):    
         guess = self.input_entry.get().strip().upper()
         self.input_entry.delete(0, tk.END)
