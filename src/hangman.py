@@ -40,6 +40,8 @@ class HangmanGame:
         self.canvas.create_line(150, 30, 150, 60, width=2)  #Rope
         self.canvas.create_oval(140, 60, 160, 80, width=2)  #Head
         self.canvas.create_line(150, 80, 150, 130, width=2) #body
+        self.canvas.create_line(150, 90, 130, 110, width=2) #Larm
+        self.canvas.create_line(150, 90, 170, 110, width=2) #Rarm
         
 def main():
     root = tk.Tk()
