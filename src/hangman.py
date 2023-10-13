@@ -9,6 +9,7 @@ class HangmanGame:
         self.guesses_left = 6
         self.display_word = ["_"] * len(self.word)
         self.previous_guesses = []
+    def draw_hangman(self):
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
