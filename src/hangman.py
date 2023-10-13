@@ -59,6 +59,17 @@ class HangmanGame:
         else:
             self.guesses_left -= 1
             self.draw_hangman()
+        
+        if "_" not in self.display_word:
+            self.word_label.config(text="You win! The word was " + self.word)
+            self.input_entry.config(state=tk.DISABLED)
+            self.submit_button.config(state=tk.DISABLED)
+        elif self.guesses_left == 0:
+            self.word_label.config(text="Game over! The word was " + self.word)
+            self.input_entry.config(state=tk.DISABLED)
+            self.submit_button.config(state=tk.DISABLED)
+        else:
+            self.guess_label.config(text="Guesses left: " + str(self.guesses_left))
     def draw_hangman(self):
         self.canvas.create_oval(140, 60, 160, 80, width=2)  #Head
         self.canvas.create_line(150, 80, 150, 130, width=2) #body
