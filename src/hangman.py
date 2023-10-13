@@ -28,6 +28,9 @@ class HangmanGame:
         self.previous_guesses_label = tk.Label(root, text="Previous Guesses:", font=("Arial", 18))
         self.previous_guesses_label.pack()
         
+        self.guesses_text = tk.Text(root, height=10, width=15, font=("Arial", 18))
+        self.guesses_text.pack()
+        
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
