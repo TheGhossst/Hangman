@@ -13,6 +13,9 @@ class HangmanGame:
         self.canvas = tk.Canvas(root, width=200, height=250)
         self.canvas.pack()
         
+        self.word_label = tk.Label(root, text=" ".join(self.display_word), font=("Arial", 24))
+        self.word_label.pack()
+        
 def main():
     root = tk.Tk()
     root.title("Hangman Game")
