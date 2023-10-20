@@ -4,7 +4,7 @@ Python Hangman using tkinter
 # Prerequisites: 
 
 ```bash
-  pip install requests
+pip install requests
 ```
 ```bash
 pip install random-word
