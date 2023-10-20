@@ -1,3 +1,4 @@
+#https://github.com/TheGhossst
 import tkinter as tk
 from random_word import RandomWords
 from tkinter import messagebox
@@ -44,7 +45,7 @@ class HangmanGame:
     #Reveal a character    
     def reveal_free_character(self):
         hidden_indices = []
-        for i, char in enumerate(self.display_word):        
+        for i, char in enumerate(self.display_word):      
             if char == "_":
                 hidden_indices.append(i)
                 
@@ -108,6 +109,6 @@ def main():
     HangmanGame(root)
     root.mainloop()
     
-#call main()    
+#call main()
 if __name__ == "__main__":
     main()
