@@ -4,6 +4,9 @@ Python Hangman using tkinter
 # Prerequisites: 
 
 ```bash
+pip install tkinter
+```
+```bash
 pip install requests
 ```
 ```bash
