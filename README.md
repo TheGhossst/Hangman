@@ -4,11 +4,19 @@ Python Hangman using tkinter
 # Prerequisites: 
 
 ```bash
-  pip install requests
+pip install tkinter
+```
+```bash
+pip install requests
 ```
 ```bash
 pip install random-word
 ```
+If you dont have pip
+```bash
+python get-pip.py
+```
+
 # Screenshots
 ![Hangman Game 20-10-2023 18_59_02](https://github.com/TheGhossst/Hangman/assets/116820865/0d4912f6-8d80-46d8-a655-2ec6bee8a3ba)
 ![Hangman Game 20-10-2023 18_59_42](https://github.com/TheGhossst/Hangman/assets/116820865/5a855497-7bab-4ce7-93f6-baf21e069945)
