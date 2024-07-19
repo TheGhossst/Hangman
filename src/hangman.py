@@ -58,6 +58,10 @@ class HangmanGame:
     #Check user guess       
     def check_guess(self):    
         guess = self.input_entry.get().strip().upper()
+        if len(guess) != 1:
+            messagebox.showinfo("Hangman", "Invalid choice! Please enter a valid letter.")
+            self.input_entry.delete(0, tk.END)
+            return
         self.input_entry.delete(0, tk.END)
         
         if not guess or guess.isspace() or guess.isdigit():
